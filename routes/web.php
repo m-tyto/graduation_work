@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+/// Auth Twitter
+Route::get('auth/twitter', 'Auth\TwitterController@TwitterRedirect');
+Route::get('auth/twitter/callback', 'Auth\TwitterController@TwitterCallback');
+Route::get('auth/twitter/logout', 'Auth\TwitterController@getLogout');
