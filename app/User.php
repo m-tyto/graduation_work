@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'password', 'nickname', 'twitter_id', 'icon_img'
     ];
 
     /**
@@ -38,6 +38,10 @@ class User extends Authenticatable
     ];
 
     public function tweets(){
+        return $this->hasmany("App\Models\Tweet");
+    }
+
+    public function folders(){
         return $this->hasmany("App\Models\Tweet");
     }
 }
