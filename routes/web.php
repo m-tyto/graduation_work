@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+/// Auth Twitter
+Route::get('auth/twitter', 'Auth\TwitterController@TwitterRedirect');
+Route::get('auth/twitter/callback', 'Auth\TwitterController@TwitterCallback');
+Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
+
+Route::get('/users/{id}', 'UserController@index')->name('user_home');
+Route::get('/folder/create', 'FolderController@create')->name('folder_create');
+Route::post('/folder/store', 'FolderController@store')->name('folder_store');
+Route::post('/tweets/store', 'TweetController@tweets_folder')->name('tweets_folder_store');
+Route::get('/folder/{id}', 'FolderController@index')->name('folder_index');
+Route::get('tweets/get/{id}', 'TweetController@get_new_tweet')->name('get_new_tweet');

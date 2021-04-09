@@ -1,1 +1,96 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+li{
+    list-style: none;
+}
+
+.flashMessage{
+    background-color: gold;
+    color: honeydew;
+    padding: 3px 0px;
+    margin-bottom: 10px 0px;
+}
+
+body{
+    margin: 40px;
+    color: rgb(96, 95, 95);
+}
+
+//home画面
+.header_elements{
+    float: right;
+    margin: 10px;
+}
+
+#icon{
+    vertical-align: 50%;
+}
+
+.content{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+h1{
+    font-size: 60px;
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.content > p{
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.link{
+    padding: 5px;
+}
+
+//ユーザー画面
+form{
+    padding: 10px 0px;
+}
+
+.allFolder{
+    padding: 10px;
+}
+
+.allTweet{
+    padding: 20px;
+}
+
+.tweet{
+    padding-bottom: 8px;
+}
+
+.scrollArea{
+    height: 400px;
+    overflow: auto;
+}
+
+.folder{
+    display: inline-block;
+    padding:  20px;
+}
+
+#explanation{
+    margin-top: 20px;
+    color: rgb(219, 98, 98);
+}
+
+h4{
+    letter-spacing: 3px;
+}

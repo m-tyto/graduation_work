@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>tweetsfolder</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        @include('layouts.header')
+    </header>
+    @if(session('flash_message'))
+        <div class="flashMessage">
+            {{ session('flash_message') }}
+        </div>
+    @endif
+    <main>
+        @yield('content')
+    </main>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+</body>
+</html>

@@ -15,6 +15,10 @@ class CreateFoldersTweetsTable extends Migration
     {
         Schema::create('folders_tweets', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('folder_id')->unsigned();
+            $table->bigInteger('tweet_id')->unsigned();
+            $table->foreign('folder_id')->references('id')->on('folders');
+            $table->foreign('tweet_id')->references('id')->on('tweets');
             $table->timestamps();
         });
     }
