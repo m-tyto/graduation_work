@@ -49939,6 +49939,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/jquery.js":
+/*!********************************!*\
+  !*** ./resources/js/jquery.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(".folder_checkbox").on("click", function () {
+  $('.folder_checkbox').prop('checked', false); //  全部のチェックを外す
+
+  $(this).prop('checked', true); //  押したやつだけチェックつける
+});
+window.dropped = "";
+window.dragged = "";
+
+window.dragstart = function dragstart(event) {
+  var dragged = event.target;
+};
+
+window.dragover = function dragover(event) {
+  // prevent default to allow drop
+  event.preventDefault();
+  var dragover = event.target;
+  dragover = dragover.closest(".folder");
+  dragover.style.opacity = 0.5;
+  dragover.addEventListener('dragleave', function () {
+    dragover.style.opacity = 1;
+  }, false);
+};
+
+window.drop = function drop(event) {
+  // prevent default action (open as link for some elements)
+  event.preventDefault(); // move dragged elem to the selected drop target
+
+  var target = event.target;
+  target.style.opacity = 1;
+  target = target.closest(".folder");
+  var dropped = target.children[1];
+
+  if (dropped.checked == true && dropped.name == "folder") {
+    document.getElementById('divide_btn').click();
+  } else {
+    alert("対象フォルダにチェックを入れてください");
+  }
+};
+
+window.confirmDivide = function confirmDivide() {
+  var tweet = document.getElementsByName("tweet[]");
+  var count = 0;
+
+  for (var i = 0; i < tweet.length; i++) {
+    if (tweet[i].checked === true) {
+      count++;
+    }
+  }
+
+  if (count === 0) {
+    alert("ツイートを選択してください");
+    return false;
+  }
+
+  select = confirm("ツイートを分類しますか？");
+
+  if (select === false) {
+    return false;
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49951,13 +50021,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!**************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/jquery.js ./resources/sass/app.scss ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Applications/MAMP/htdocs/tweet_folder/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/tweet_folder/resources/js/jquery.js */"./resources/js/jquery.js");
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/tweet_folder/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

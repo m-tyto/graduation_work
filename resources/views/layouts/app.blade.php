@@ -19,7 +19,7 @@
         @include('layouts.header')
     </header>
     @if(session('flash_message'))
-        <div>
+        <div class="flashMessage">
             {{ session('flash_message') }}
         </div>
     @endif

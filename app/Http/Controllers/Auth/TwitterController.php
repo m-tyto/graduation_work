@@ -44,7 +44,7 @@ class TwitterController extends Controller
         // Laravel 標準の Auth でログイン
         Auth::login($user);
 
-        $this->tweets_store(Auth::id());
+        $this->tweets_store(Auth::id(), $access_token);
         
         return redirect(route('user_home', Auth::id()));
     }
@@ -88,8 +88,9 @@ class TwitterController extends Controller
         return redirect('/');
     }
 
-    public function tweets_store($user_id){
-        $oauth = new TwitterOAuth(env('TWITTER_CLIENT_ID'), env('TWITTER_CLIENT_SECRET'), env('TWITTER_CLIENT_ID_ACCESS_TOKEN'), env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET'));
+    public function tweets_store($user_id, $access_token){
+
+        $oauth = new TwitterOAuth(env('TWITTER_CLIENT_ID'), env('TWITTER_CLIENT_SECRET'), $access_token['oauth_token'], $access_token['oauth_token_secret']);
         $user = User::find($user_id);
         //ツイート一覧を取得
         $tweets = $oauth->get('statuses/user_timeline', array(

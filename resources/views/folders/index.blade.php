@@ -6,7 +6,7 @@
         <p>まだツイートの分類はされていません</p>
     @else
         @foreach($tweets as $tweet)
-            <li>{{ $tweet->text }}</li>
+            <li class="tweet" style="list-style-type: square">{{ $tweet->text }}</li>
         @endforeach
     @endif
 @endsection

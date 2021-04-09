@@ -14,13 +14,23 @@ window.dragstart = function dragstart(event){
 window.dragover = function dragover(event){
                     // prevent default to allow drop
                     event.preventDefault();
+                    let dragover = event.target;
+                    dragover = dragover.closest(".folder");
+                    dragover.style.opacity = 0.5;
+                    dragover.addEventListener('dragleave', function () {
+                        dragover.style.opacity = 1;
+                    }, false);
                   }
 
 window.drop = function drop(event){
                 // prevent default action (open as link for some elements)
                 event.preventDefault();
                 // move dragged elem to the selected drop target
-                const dropped = event.target.firstElementChild;
+                let target = event.target;
+                target.style.opacity = 1;
+                target  = target.closest(".folder");
+                const dropped = target.children[1];
+
                 if(dropped.checked == true && dropped.name == "folder"){
                     document.getElementById('divide_btn').click();
                 }
