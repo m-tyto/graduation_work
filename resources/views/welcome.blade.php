@@ -18,8 +18,8 @@
                 <p>twitterでログインしてツイートを分類しよう！</p>
 
                 <div class="links">
-                    <a href="/auth/twitter" class="link"s>ログイン</a>
-                    <a href="/auth/twitter/logout" class="link">ログアウト</a>
+                    <a href="{{route('login')}}" class="link"s>ログイン</a>
+                    <a href="{{route('logout')}}" class="link">ログアウト</a>
                 </div>
             </div>
         </div>

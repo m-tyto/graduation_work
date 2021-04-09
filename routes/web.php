@@ -20,9 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 /// Auth Twitter
-Route::get('auth/twitter', 'Auth\TwitterController@TwitterRedirect');
+Route::get('auth/twitter', 'Auth\TwitterController@TwitterRedirect')->name('login');
 Route::get('auth/twitter/callback', 'Auth\TwitterController@TwitterCallback');
-Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
+Route::get('auth/twitter/logout', 'Auth\TwitterController@logout')->name('logout');
 
 Route::get('/users/{id}', 'UserController@index')->name('user_home');
 Route::get('/folder/create', 'FolderController@create')->name('folder_create');
