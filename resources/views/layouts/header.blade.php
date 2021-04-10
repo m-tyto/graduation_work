@@ -4,7 +4,7 @@
 @endif
 
 @guest
-    <a href="/auth/twitter" class="header_element">ログイン</a>
+    <a href="{{route('login')}}r" class="header_elements">ログイン</a>
     
 @else
     @if($user->id == Auth::id())
